@@ -1,5 +1,5 @@
 html{
-  background-image: url("./1.jpg");
+  /* background-image: url("./1.jpg"); */
   max-height: 10%;
 }
 
@@ -133,17 +133,18 @@ body {
 
 /* Langauge page css */
 #bar_border{
-  height: 3rem;
-  width: 25rem;
+  height: var(--bar_height);
+  width: var(--bar_width);
   border:  0.3rem solid black;
   margin: 1rem;
 }
 
 .bar_fill{
   display: block;
-  height: 3rem;
+  height: var(--bar_height);
   background-color: deeppink;
   width: 0%;
+  /* width: 80%; */
   animation-duration: 2s;
 }
 
@@ -151,6 +152,7 @@ body {
   position: absolute;
   top: var(--top_position);
   right: var(--right_position);
+  right: calc();
   width: 20%;
 }
 
@@ -207,6 +209,21 @@ body {
   padding-top: 1rem;
 }
 
+/* Download page */
+.download_img{
+  width: 20rem;
+  height: 30rem;
+}
+
+.download_img:hover{
+  opacity: 0.5;
+}
+
+.download_div{
+  /* float: inline-start; */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 @keyframes fade_in{
   0%  {opacity: 0;}
   10% {opacity: 0.1;}

@@ -10,6 +10,7 @@ animate();
 window.history.forward(1)//stops the user from using browser back button
 
 function init() {
+    
     renderer = new THREE.WebGLRenderer();
     render_setSize(window.innerWidth,window.innerHeight)
     document.body.appendChild(renderer.domElement);

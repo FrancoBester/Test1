@@ -24,11 +24,12 @@
     <script  src="OrbitControls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
     <script src="API_2.js"></script>
+    
 
-    <div id=mobile_message style="color: aliceblue;"> 
+    <!-- <div id=mobile_message style="color: aliceblue;"> 
         For the best user experience please view the site on a desktop computer.
-    </div>
-    <script src="main_2.js"></script>
+    </div> -->
+    <!-- <script src="main_2.js"></script> -->
     
 
     <!-- About page HTML -->
@@ -112,7 +113,7 @@
     <div id="Langauge" class="hide_section" style="visibility: hidden;">
         <button onclick="test_function('Langauge')" class="back_button" id="Langauge_btn"><p class="span_button">Home page</p></button>
         langauges I can speak
-        <div class="paragraph" style="--height: 65rem">
+        <div class="paragraph" style="--height: 65rem" id="lang_skils">
             <section style="float: left; width: 40%;">
                 <p class="langauge_text">For the past 6 years I have been improving and expading my programming knowledge while also learning new langauges every change I get</p>
                 <p class="langauge_text">I have a greater interest in back-end development but I am also passion for front-end development and proving the user with both a great user interface and user expereince</p>
@@ -120,47 +121,47 @@
                 <p class="langauge_text" style="width: 70%;">I haved used multiple different DBMS like MYSQL, Oracle and MS Access</p>
             </section>
 
-            <div class="bar_position" style="--top_position: 10rem;--right_position:46rem">
+            <div class="bar_position" style="--top_position: 10rem;--right_position:47rem;--bar_width:25rem;--bar_height:3rem;">
                 <p>C# - 9/10</p>
                 <div id="bar_border" style="--percent: 90%"><div class="bar_fill"></div></div>
             </div>
 
-            <div class="bar_position" style="--top_position: 18rem;--right_position:31rem">
+            <div class="bar_position" style="--top_position: 18rem;--right_position:31rem;--bar_width:25rem;--bar_height:3rem;">
                 <p>SQL - 8/10</p>
                 <div id="bar_border" style="--percent: 80%"><div class="bar_fill"></div></div> 
             </div>
 
-            <div class="bar_position" style="--top_position: 18rem;--right_position:61rem">
+            <div class="bar_position" style="--top_position: 18rem;--right_position:61rem;--bar_width:25rem;--bar_height:3rem;">
                 <p>Python - 8/10</p>
                 <div id="bar_border" style="--percent: 80%" ><div class="bar_fill"></div></div>
             </div>
 
-            <div class="bar_position" style="--top_position: 28rem;--right_position:81rem">
+            <div class="bar_position" style="--top_position: 28rem;--right_position:81rem;--bar_width:25rem;--bar_height:3rem;">
                 <p> JavaScript - 7/10</p>
                 <div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>
             </div> 
 
-            <div class="bar_position" style="--top_position: 28rem;--right_position:46rem">
+            <div class="bar_position" style="--top_position: 28rem;--right_position:46rem;--bar_width:25rem;--bar_height:3rem;">
                 <p>C++ - 7/10</p>
                 <div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>
             </div>
 
-            <div class="bar_position" style="--top_position: 28rem;--right_position:11rem">
+            <div class="bar_position" style="--top_position: 28rem;--right_position:11rem;--bar_width:25rem;--bar_height:3rem;">
                 <p>Java - 7/10</p>
                 <div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>
             </div>
 
-            <div class="bar_position" style="--top_position: 38rem;--right_position:46rem">
+            <div class="bar_position" style="--top_position: 38rem;--right_position:46rem;--bar_width:25rem;--bar_height:3rem;">
                 <p>Delphi - 6/10</p>
                 <div id="bar_border" style="--percent: 60%"><div class="bar_fill"></div></div>
             </div>
 
-            <div class="bar_position" style="--top_position: 46rem;--right_position:31rem">
+            <div class="bar_position" style="--top_position: 46rem;--right_position:31rem;--bar_width:25rem;--bar_height:3rem;">
                 <p>HTML - 5/10</p>
                 <div id="bar_border" style="--percent: 50%"><div class="bar_fill"></div></div>
             </div>
 
-            <div class="bar_position" style="--top_position: 46rem;--right_position:61rem">
+            <div class="bar_position" style="--top_position: 46rem;--right_position:61rem;--bar_width:25rem;--bar_height:3rem;">
                 <p>CSS - 5/10</p>
                 <div id="bar_border" style="--percent: 50%"><div class="bar_fill"></div></div>
             </div> 
@@ -236,13 +237,33 @@
 
     <!-- Download page for all docs. -->
     <!-- Zoomin animation(js) = working -->
-    <div id="Downloads" class="hide_section" style="visibility: hidden;">
+    <div id="Downloads" class="heading" style="visibility: visible;">
         <button onclick="test_function('Downloads')" class="back_button" id="Downloads_btn"><p class="span_button">Home page</p></button>
         Download
-        
-        <a href="#" onclick="window.open('./CV_Franco_Bester.pdf'); return false;">PDF</a>
-    </div> 
+        <div class="paragraph" style="--height:30rem">
 
+            <div  class="download_div" style="float: left;">
+                <a href="#" onclick="window.open('./Franco_Bester_CV.pdf'); return false;">
+                    <img src="./CV.png" class="download_img">
+                </a>
+            </div>
+
+            <div class="download_div" style="float: right;">
+                <a href="#" onclick="window.open('./Franco_Bester_SI_diploma.pdf'); return false;">
+                    <img src="./SI.png" class="download_img">
+                </a>
+            </div>
+
+            <div class="download_div">
+                <a href="#" onclick="window.open('./Franco_Bester_Matric_diploma.pdf'); return false;">
+                    <img src="./Diploma.png" class="download_img">
+                </a>
+            </div>
+        </div>
+    </div>
+        
+    </div> 
+    <!-- <script src="test.js"></script> -->
 </body>
 </html>
 
