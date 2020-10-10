@@ -15,15 +15,14 @@ body {
 /* Navigation bar CSS */
 
 .topnav {
-  background-color: #333;
+  background-color: rgb(34, 34, 34);
   overflow: hidden;
   width: 100%;
-  /* height: 0.1rem; */
 }
 
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -31,30 +30,27 @@ body {
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #949494;
   color: black;
 }
 
 .topnav a.active {
-  background-color: #590995;
+  background-color: #000fff;
   color: white;
 }
-
 
 /* Pages CSS */
 .heading{
   width: 100%;
   text-align: center;
-  /* padding-left: 2rem; */
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
-  /* padding-right: 2rem; */
   font-weight: bolder;
   font-size: 3rem;
   animation-name: fade_in;
   animation-duration: 3s;
   display: inline-block;
-  background-color: rgb(143, 142, 142);
+  background-color:  #949494 ;
   height: auto;
 }
 
@@ -62,15 +58,14 @@ body {
   display: block;
   padding: 1rem;
   font-size: 1rem;
-  background-color: #9CC3D5FF;
+  background-color: #4fc1b1 ;
   height: var(--height);
   resize: both;
   margin-top: 1rem;
-  /* overflow: auto; */
 }
 
 .hide_section{
-  /* visibilty: hidden -  used to make div on page not take space on page when other div is being shown */
+  /* used to make div on page not take space on page when other div is being shown */
   position: absolute; 
   animation-name: fade_out;
   animation-duration: 3s;
@@ -82,13 +77,18 @@ body {
   float: left;
   margin-left: 2rem;
   height: 3rem;
-  color: #333;
-  box-shadow: -3px 3px orange, -2px 2px orange, -1px 1px orange;
-  border: 1px solid orange;
+  color: black;
+  box-shadow: -3px 3px #000fff, -2px 2px #000fff, -1px 1px #000fff;
+  border: 1px solid #000fff;
+  font-size: 1rem;
   animation-name: spin_button;
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+}
+
+.back_button:hover{
+  opacity: 0.5;
 }
 
 .span_button{
@@ -123,12 +123,17 @@ body {
 
 /* Experience page */
 .SI_img{
-  width: 350px;
-  height: 450px;
+  width: 300px;
+  height: 500px;
+}
+
+.SI_img:hover{
+  opacity: 0.5;
 }
 
 .experience_text{
-  font-size: 1.3rem;
+  padding-bottom: 0.85;
+  font-size: 1.1rem;
 }
 
 /* Langauge page css */
@@ -142,9 +147,8 @@ body {
 .bar_fill{
   display: block;
   height: var(--bar_height);
-  background-color: deeppink;
+  background-color: #000fff;
   width: 0%;
-  /* width: 80%; */
   animation-duration: 2s;
 }
 
@@ -157,33 +161,47 @@ body {
 }
 
 .langauge_text{
-  background-color: honeydew;
+  background-color: white;
   margin-left: 0rem;
   margin-top: 0rem;
   margin-bottom: 0rem;
   padding-top: 1rem;
   padding-left: 0rem;
+  font-size: 1.2rem;
+}
+
+.bar_heading{
+  font-size: 1.5rem;
 }
 
 /* Reference page css */
+.reference_div{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .reference{
-  max-width: 50%;
   width: 180px;
   height: 200px;
+}
+
+.reference_text{
+  font-size: 1.4rem;
 }
 
 /* Interest page css */
 .api_information{
   font-size: 2rem;
-  background-color: #66b2b2;
-  padding: 0.5rem;
+  background-color: #4fc1b1;
+  padding: 0.4rem;
 }
 
 .background_api{
-  background-color: #ffffff98;
+  background-color:white;
   margin-left: 1rem;
   margin-right: 1rem;
   margin-top: 1rem;
+  padding: 0.5rem;
   /* padding-left: 1rem;
   padding-right: 1rem; */
 }
@@ -220,10 +238,10 @@ body {
 }
 
 .download_div{
-  /* float: inline-start; */
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
 @keyframes fade_in{
   0%  {opacity: 0;}
   10% {opacity: 0.1;}
