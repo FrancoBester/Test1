@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" s>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height ">
+    <title>Document</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="main_2.css"/>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <div class="topnav" id="navigation_bar">
+        <a class="active" href="#About" onclick="showDiv('About')">About</a>
+        <a href="#Experience" onclick="showDiv('Experience')">Work exrience</a>
+        <a href="#Langauge" onclick="showDiv('Langauge')">Languages</a>
+        <a href="#Links" onclick="showDiv('Links')">Links</a>
+        <a href="#References" onclick="showDiv('References')">Refrences</a>
+        <a href="#Downloads" onclick="showDiv('Downloads')">Download</a>
+    </div>
+
+    <!-- Javascript links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r119/three.min.js"></script>
+    <script src="GLTFLoader.js"></script>
+    <script  src="OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.0.5/gsap.min.js"></script>
+    <script src="API_2.js"></script>
+
+    <div id=mobile_message style="color: aliceblue;"> 
+        For the best user experience please view the site on a desktop computer.
+    </div>
+    <script src="main_2.js"></script>
+    
+
+    <!-- About page HTML -->
+    <!-- Zoomin animation(js) = working -->
+    <div id="About" class="hide_section" style="visibility: hidden;"> 
+        <!-- Button used to call javascript function which creates 3d object again and hides html  -->
+        <button onclick="test_function('About')" class="back_button" id="About_btn"><p class="span_button">Home page</p></button>
+        About Me
+        
+        <div class="paragraph" style="--height: 47rem">
+            <section style="float: inline-start;margin-right: 1rem;">
+                <img src="./Profil_1.jpg" class="me"/>
+                <section style="background-color: rgb(109, 194, 194);">
+                    <p style="font-size: 3rem;font-weight: bolder;color:darkred; margin-bottom: 0.5rem;">Contact info</p>
+                    <p style="font-size: 1.4rem; margin-top: 0.3rem;">Name: Franco Bester</p>
+                    <p style="font-size: 1.4rem;">Email: 
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=francobester17@gmail.com">francobester17@gmail.com</a>
+                    </p>
+                    <p style="font-size: 1.4rem;">Cell: 078 002 3227</p>
+                </section>
+            </section>
+
+            
+            <section style="float: inline-start;width: 80%; background-color: azure;">
+                <p class="About_text"> My name is Franco Bester, I am a sotfware developer currently completing my final year in Information Technologies at NWU Vaal.</p>
+                <p class="About_text"> For the last 6 years I have been doing programming either in high school or at unviersity, technology has always interesting to me 
+                    and I have developed a great passion and interesset in all things related to information technology. </p> 
+                <p class="About_text">I am a computer,software enthusiast with a great instrest and appaite for new tegnolgoies and inavations in my field.</p> 
+                <p class="About_text">50% of my spare time is spend doing research on new and upcomming technological products and services while
+                    30% is spend developing and improving my software development skills and the last
+                   20% is set aside to allow myself to relax and enjoy the other parts of live 
+                </p>
+                   
+                <p></p>
+
+                <p class="About_text">I am a great team player, I am a very cooperative person who does not have a problem receiving orders from others along with being able to assume a leadership role if the sistution calls for it.</p>
+                <p class="About_text">While I am a strong advidcite for teamwork I don't have a problem working on my own and taking full responsiblity for all my mistakes and sortcomings</p>
+                <p class="About_text">Planning and scheduling has always been one of my top priorities when starting any new project and because of this my planning and scheduling abilties have grown to be own of my strongest skills  </p>
+                <p class="About_text">I am a very hard worker and always put 100% of my energy into everything that I do</p>
+                <p class="About_text">My strongest personal trat is that I form strong bonds with those close to me and that I have always cared alot about my family and friends and value them the most in life</p>   
+
+            </section>
+        </div>
+    </div>
+    
+    <!-- Experience -->
+    <!-- Zoomin animation(js) = working -->
+    <div id="Experience" class="hide_section" style="visibility: hidden;">
+        <button onclick="test_function('Experience')" class="back_button" id="Experience_btn"><p class="span_button">Home page</p></button>
+        Past work experience
+        <div class="paragraph" style="--height: 47rem">
+            <section style="float: inline-end;">
+                <img src="./SI.png" class="SI_img"/>
+            </section>
+
+            <section>
+                <p>For the past 2 years I have been working a the North-West University Vaal campus in Vanderbijlpark ( 
+                    <a href="http://www.nwu.ac.za/welcome">NWU)</a> 
+                </p>
+                <p>In 2018 I was employeed at the NWU Vaal campus as a Supplemental Instructor(SI) for the USER INTERFACE PROGRAMMING module(first year), to become an SI a student needs to attend and pass a interdictory course</p>
+                <p>Once this course has been passed a student receives a diploma and is allowed to be employeed as a Supplemental Instructor</p>
+                <p>As a SI a student is required to attend and assist students in their contact/theoretical classes along with providing and creating additional assignments/classes and explanations</p>
+                <p>2019 I transitioned from being a SI to be a Student Assistant(
+                    <a href="http://services.nwu.ac.za/ctl/supplemental-instruction">read more</a>
+                ), both positions are very similiar with the main difference being that as a student assistant you are required to mark student test and assignment instead of providing additional learning opportunities for students</p>
+                <p>In 2019 I assistant multiple modules: </p>
+                <p>second year - OBJECT ORIENTED PROGRAMMING & APPS AND ADVANCED USER INTERFACE PROGRAMMING</p>
+                <p>first year -  STRUCTURED PROGRAMMING & USER INTERFACE PROGRAMMING </p>
+                <p>All my past work experienced required that I was able to work well with other people(students), be to able to work well in a team and be a valuable/reliable person on who the rest of my team could place their trust in</p>
+                <p>My past jobs also required that I had good communction and explanation skills to beter understand and assist students with their problems</p>
+                <p>I also participated as a adjudicator in the past 2 GeeXpo's(
+                    <a href="http://natural-sciences.nwu.ac.za/geexpo">read more</a>) where I along with other NWU employees marked and assessed highschool yearly IT projects
+                </p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Langauge -->
+    <!-- Zoomin animation(js) = working -->
+    <!-- Add human/computer langauges headings -->
+    <div id="Langauge" class="hide_section" style="visibility: hidden;">
+        <button onclick="test_function('Langauge')" class="back_button" id="Langauge_btn"><p class="span_button">Home page</p></button>
+        langauges I can speak
+        <div class="paragraph" style="--height: 65rem">
+            <section style="float: left; width: 40%;">
+                <p class="langauge_text">For the past 6 years I have been improving and expading my programming knowledge while also learning new langauges every change I get</p>
+                <p class="langauge_text">I have a greater interest in back-end development but I am also passion for front-end development and proving the user with both a great user interface and user expereince</p>
+                <p class="langauge_text" style="width: 85%">I am very experienced working with SQL based databases, </p>
+                <p class="langauge_text" style="width: 70%;">I haved used multiple different DBMS like MYSQL, Oracle and MS Access</p>
+            </section>
+
+            <div class="bar_position" style="--top_position: 10rem;--right_position:46rem">
+                <p>C# - 9/10</p>
+                <div id="bar_border" style="--percent: 90%"><div class="bar_fill"></div></div>
+            </div>
+
+            <div class="bar_position" style="--top_position: 18rem;--right_position:31rem">
+                <p>SQL - 8/10</p>
+                <div id="bar_border" style="--percent: 80%"><div class="bar_fill"></div></div> 
+            </div>
+
+            <div class="bar_position" style="--top_position: 18rem;--right_position:61rem">
+                <p>Python - 8/10</p>
+                <div id="bar_border" style="--percent: 80%" ><div class="bar_fill"></div></div>
+            </div>
+
+            <div class="bar_position" style="--top_position: 28rem;--right_position:81rem">
+                <p> JavaScript - 7/10</p>
+                <div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>
+            </div> 
+
+            <div class="bar_position" style="--top_position: 28rem;--right_position:46rem">
+                <p>C++ - 7/10</p>
+                <div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>
+            </div>
+
+            <div class="bar_position" style="--top_position: 28rem;--right_position:11rem">
+                <p>Java - 7/10</p>
+                <div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>
+            </div>
+
+            <div class="bar_position" style="--top_position: 38rem;--right_position:46rem">
+                <p>Delphi - 6/10</p>
+                <div id="bar_border" style="--percent: 60%"><div class="bar_fill"></div></div>
+            </div>
+
+            <div class="bar_position" style="--top_position: 46rem;--right_position:31rem">
+                <p>HTML - 5/10</p>
+                <div id="bar_border" style="--percent: 50%"><div class="bar_fill"></div></div>
+            </div>
+
+            <div class="bar_position" style="--top_position: 46rem;--right_position:61rem">
+                <p>CSS - 5/10</p>
+                <div id="bar_border" style="--percent: 50%"><div class="bar_fill"></div></div>
+            </div> 
+            <!-- <p> English - 4/5</p>
+            <p> Afrikaans - 4/5</p> -->
+        </div>
+    </div>
+
+    <!-- References -->
+    <!-- Zoomin animation(js) = working -->
+    <div id="References" class="hide_section" style="visibility: hidden;">
+        <button onclick="test_function('References')" class="back_button" id="References_btn"><p class="span_button">Home page</p></button>
+        References
+        <div class="paragraph" style="--height: 47rem">
+            <div style="float: inline-start; width: 30%; padding-right: 1rem;padding-left: 3rem;">
+                <p>
+                    <img src="./Sune.jpg" class="reference">
+                </p>
+                <p>Name: Dr. Sune van der Linde</p>
+                <p>Job title: lecturer</p>
+                <p>Email info:  
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=Sune.vanderlinde@nwu.ac.za">Sune.vanderlinde@nwu.ac.za</a>
+                </p>
+                <p>Cell info: +27 16 910 3258</p>
+                <p>Modules:</p>
+                <p>User Interface Programming</p>
+                <p>Apps and Advanced User Interface Programming</p>
+            </div>
+
+            <div style="float:inline-start ;width: 35%;padding-left: 1rem; padding-right: -1rem;">
+                <p>
+                    <img src="./Zeeman.jpg" class="reference">
+                </p>
+                <p>Name: Ms Malie Zeeman</p>
+                <p>Job title: lecturer</p>
+                <p>Email info:  
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=Malie.Zeeman@nwu.acs.za">Malie.Zeeman@nwu.ac.za</a>
+                </p>
+                <p>Cell info: +27 16 910 3266</p>
+                <p>Moduels:</p>
+                <p>Structured Programming</p>
+                <p>Object Oriented Programming</p>
+            </div>  
+
+            <div style="float: inline-start;width: 25%;padding-left: 1rem;padding-right: 3rem;">
+                <p>
+                    <img src="./Luke.jpg" class="reference">
+                </p>
+                <p>Name: Mr Luke Coetzee</p>
+                <p>Job title: Assitant lecturer</p>
+                <p>Email info:  
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=Malie.Zeeman@nwu.ac.za">Luke.Coetzee@nwu.ac.za</a>
+                </p>
+                <p>Cell info: +27 82 469 6996</p>
+                <p>Module:</p>
+                <p>User Interface Programming</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Links(API) -->
+    <!-- Zoomin animation(js) = working -->
+    <div id="Links" class="hide_section" style="visibility: hidden;">
+        <!-- <div id="loader"></div> -->
+        <button onclick="test_function('Links')" class="back_button" id="Links_btn"><p class="span_button">Home page</p></button>
+        Interests
+        <div>
+            <div id="SpaceX" style="float: inline-start; margin-right: 11rem; margin-left: 5rem; width: 50rem; padding: 0rem;" class="api_information"></div>
+            <div id="Steam" style="float: inline-start; width: 50rem;" class="api_information"></div>
+        </div>
+        <div id="Github" style="float: inline-start; margin-right: 13rem; margin-left: 5rem; width: 50rem; margin-top: 4rem; padding-left: 0.1rem;" class="api_information"></div>
+    </div> 
+
+    <!-- Download page for all docs. -->
+    <!-- Zoomin animation(js) = working -->
+    <div id="Downloads" class="hide_section" style="visibility: hidden;">
+        <button onclick="test_function('Downloads')" class="back_button" id="Downloads_btn"><p class="span_button">Home page</p></button>
+        Download
+        
+        <a href="#" onclick="window.open('./CV_Franco_Bester.pdf'); return false;">PDF</a>
+    </div> 
+
+</body>
+</html>
+
