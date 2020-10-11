@@ -26,10 +26,10 @@
     <script src="API_2.js"></script>
     
 
-    <!-- <div id=mobile_message style="color: aliceblue;"> 
+    <!-- <div id=mobile_message style="color: aliceblue; visibility: hidden;"> 
         For the best user experience please view the site on a desktop computer.
     </div> -->
-    <!-- <script src="main_2.js"></script> -->
+    
     
 
     <!-- About page HTML -->
@@ -46,7 +46,7 @@
                     <p style="font-size: 3rem;font-weight: bolder;color:#000fff; margin-bottom: 0.5rem;">Contact info</p>
                     <p style="font-size: 1.4rem; margin-top: 0.3rem;">Name: Franco Bester</p>
                     <p style="font-size: 1.4rem;">Email: 
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=francobester17@gmail.com">francobester17@gmail.com</a>
+                        <a href="#About" onclick="open_new_window('mail.google.com/mail/?view=cm&fs=1&tf=1&to=francobester17@gmail.com')">francobester17@gmail.com</a>
                     </p>
                     <p style="font-size: 1.4rem;">Cell: +27 78 002 3227</p>
                 </section>
@@ -89,7 +89,7 @@
 
             <section style="background-color: #ffffff; width: 80%; padding: 1rem;">
                 <p class="experience_text">For the past 2 years I have been working a the North-West University Vaal campus in Vanderbijlpark ( 
-                    <a href="http://www.nwu.ac.za/welcome">NWU)</a> 
+                    <a href="#Experience" onclick="open_new_window('www.nwu.ac.za/welcome')">NWU)</a> 
                 </p>
                 <p class="experience_text">In 2018 I was employed at the NWU Vaal campus as a Supplemental Instructor(SI) for the user interface programming at first year module, to become an SI a student needs to attend and pass a
                     interdicoty course. Once this course has been passed a student receives a diploma and is allowed to be employeed as a Supplemental Instructor
@@ -97,7 +97,7 @@
                 <p class="experience_text">As a SI a student is required to attend and assist students in their contact/theoretical classes along with providing and creating additional assignments/classes and explanations</p>
 
                 <p class="experience_text">2019 I transitioned from being a SI to be a Student Assistant(
-                    <a href="http://services.nwu.ac.za/ctl/supplemental-instruction">read more</a>
+                    <a href="#Experience" onclick="open_new_window('services.nwu.ac.za/ctl/supplemental-instruction')">read more</a>
                 ), both positions are very similiar with the main difference being that as a student assistant you are required to mark student test and assignment instead of providing additional learning opportunities for students</p>
                 <p class="experience_text">In 2019 I assistant multiple modules: </p>
                 <p class="experience_text">second year - object oriented programming & apps/advanced user interface programming</p>
@@ -105,7 +105,7 @@
                 <p class="experience_text">All my past work experienced required that I was able to work well with other people(students), be to able to work well in a team and be a valuable/reliable person on who the rest of my team could place their trust in</p>
                 <p class="experience_text">My past jobs also required that I had good communction and explanation skills to beter understand and assist students with their problems</p>
                 <p class="experience_text">I also participated as a adjudicator in the past 2 GeeXpo's(
-                    <a href="http://natural-sciences.nwu.ac.za/geexpo">read more</a>) where I along with other NWU employes marked and assessed highschool yearly IT projects
+                    <a href="#Experience" onclick="open_new_window('natural-sciences.nwu.ac.za/geexpo')">read more</a>) where I along with other NWU employes marked and assessed highschool yearly IT projects
                 </p>
             </section>
         </div>
@@ -184,7 +184,7 @@
                 <p class="reference_text">Name: Dr. Sune van der Linde</p>
                 <p class="reference_text">Job title: Lecturer</p>
                 <p class="reference_text">Email info:  
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=Sune.vanderlinde@nwu.ac.za">Sune.vanderlinde@nwu.ac.za</a>
+                    <a href="#References" onclick="open_new_window('mail.google.com/mail/?view=cm&fs=1&tf=1&to=Sune.vanderlinde@nwu.ac.za')">Sune.vanderlinde@nwu.ac.za</a>
                 </p>
                 <p class="reference_text">Cell info: +27 16 910 3258</p>
                 <p class="reference_text">Modules:</p>
@@ -199,7 +199,7 @@
                 <p class="reference_text">Name: Ms Malie Zeeman</p>
                 <p class="reference_text">Job title: Lecturer</p>
                 <p class="reference_text">Email info:  
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=Malie.Zeeman@nwu.acs.za">Malie.Zeeman@nwu.ac.za</a>
+                    <a href="#References" onclick="open_new_window('mail.google.com/mail/?view=cm&fs=1&tf=1&to=Malie.Zeeman@nwu.acs.za')">Malie.Zeeman@nwu.ac.za</a>
                 </p>
                 <p class="reference_text">Cell info: +27 16 910 3266</p>
                 <p class="reference_text">Modules:</p>
@@ -214,7 +214,7 @@
                 <p class="reference_text">Name: Mr Luke Coetzee</p>
                 <p class="reference_text">Job title: Assitant lecturer</p>
                 <p class="reference_text">Email info:  
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=Malie.Zeeman@nwu.ac.za">Luke.Coetzee@nwu.ac.za</a>
+                    <a href="#References" onclick="open_new_window('mail.google.com/mail/?view=cm&fs=1&tf=1&to=Luke.Coetzee@nwu.ac.za')">Luke.Coetzee@nwu.ac.za</a>
                 </p>
                 <p class="reference_text">Cell info: +27 82 469 6996</p>
                 <p class="reference_text">Modules:</p>
@@ -225,7 +225,7 @@
 
     <!-- Links(API) -->
     <!-- Zoomin animation(js) = working -->
-    <div id="Links" class="heading" style="visibility: visible;">
+    <div id="Links" class="hide_section" style="visibility: hidden;">
         <!-- <div id="loader"></div> -->
         <button onclick="test_function('Links')" class="back_button" id="Links_btn"><p class="span_button">Home page</p></button>
         Interests
@@ -238,7 +238,7 @@
 
     <!-- Download page for all docs. -->
     <!-- Zoomin animation(js) = working -->
-    <div id="Downloads" class="heading" style="visibility: visible;">
+    <div id="Downloads" class="hide_section" style="visibility: hidden;">
         <button onclick="test_function('Downloads')" class="back_button" id="Downloads_btn"><p class="span_button">Home page</p></button>
         Download
         <div class="paragraph" style="--height:30rem">
@@ -263,7 +263,7 @@
         </div>
     </div>
         
-    </div> 
+    <script src="main_2.js"></script>
     <!-- <script src="test.js"></script> -->
 </body>
 </html>

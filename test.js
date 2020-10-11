@@ -1,5 +1,11 @@
     
-test()
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);//check if site is on mobile or pc
+console.log(isMobile)
+if(isMobile == false){
+    console.log("this is a test")
+    test()
+}
+
 
 function test(){
     console.log(document)

@@ -4,10 +4,10 @@ var camera_positions = [[7.989,0.366,-0.18],[-0.002,0.514,7.982],[0.000,5.880,-0
 
 var used_cube = false
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);//check if site is on mobile or pc
-console.log(isMobile)
+
 init();
 animate();
-window.history.forward(1)//stops the user from using browser back button
+// window.history.forward(1)//stops the user from using browser back button
 
 function init() {
     
@@ -157,7 +157,6 @@ function showDiv(elementId){
 
     if((past_div != elementId) && (past_div != null)){ 
         prev_element = document.getElementById(past_div)
-        console.log(prev_element)
         prev_element.classList.remove("heading")
         prev_element.style.visibility = "hidden"
         prev_element.classList.add("hide_section")
@@ -165,7 +164,7 @@ function showDiv(elementId){
 
     if(isMobile == false)
     {
-
+       testing_stuff()
     }
     
     document.getElementById(elementId+"_btn").disabled = false
@@ -238,3 +237,63 @@ function test_function(elementId){//method used to hide html and show the cube
     // console.log(element.style.visibility)
 }
 
+function open_new_window(URL){
+    window.open("https://"+URL)
+}
+
+function testing_stuff(){
+    var element = document.getElementById("lang_skils")
+    var new_text = 
+    '<section style="float: left; width:50%">'+
+        '<p class="langauge_text" style"width:100%;">For the past 6 years I have been improving and expading my programming knowledge while also learning new langauges every change I get.</p>'+
+        '<p class="langauge_text">I have a greater interest in back-end development but I am also passion for front-end development and providing the user with both a great user interface and expereince.</p>'+
+        '<p class="langauge_text" style="width: 70%">I am very experienced working with SQL based databases, I haved used multiple different DBMS like MYSQL, Oracle and MS Access.</p>'+
+    '</section>'+
+
+    '<div class="bar_position" style="--top_position: 11rem;--right_position:11rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p>C# - 9/10</p>'+
+        '<div id="bar_border" style="--percent: 90%; margin-left:5rem"><div class="bar_fill"></div></div>'+
+    '</div>'+
+
+    '<div class="bar_position" style="--top_position: 16rem;--right_position:19rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p >SQL - 8/10</p>'+
+        '<div id="bar_border" style="--percent: 80%; margin-left:5rem"><div class="bar_fill"></div></div>'+
+    '</div>'+
+
+    '<div class="bar_position" style="--top_position: 16rem;--right_position:4rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p>Python - 8/10</p>'+
+        '<div id="bar_border" style="--percent: 80%;margin-left:6rem><div class="bar_fill"></div></div>'+
+    '</div>'+
+
+    '<div class="bar_position" style="--top_position: 22rem;--right_position:22rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p> JavaScript - 7/10</p>'+
+        '<div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>'+
+    '</div> '+
+
+    '<div class="bar_position" style="--top_position: 22rem;--right_position:11rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p> C++ - 7/10</p>'+
+        '<div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>'+
+    '</div> '+
+
+    '<div class="bar_position" style="--top_position: 22rem;--right_position:0rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p> Java - 7/10</p>'+
+        '<div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>'+
+    '</div> '+
+
+    '<div class="bar_position" style="--top_position: 28rem;--right_position:11rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p> Delphi - 6/10</p>'+
+        '<div id="bar_border" style="--percent: 60%"><div class="bar_fill"></div></div>'+
+    '</div>'+
+
+    '<div class="bar_position" style="--top_position: 33rem;--right_position:19rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p> HTML - 5/10</p>'+
+        '<div id="bar_border" style="--percent: 50%"><div class="bar_fill"></div></div>'+
+    '</div>'+
+
+    '<div class="bar_position" style="--top_position: 33rem;--right_position:4rem;--bar_width:5rem;--bar_height:1.5rem;">'+
+        '<p> CSS - 5/10</p>'+
+        '<div id="bar_border" style="--percent: 50%"><div class="bar_fill"></div></div>'+
+    '</div>'
+
+    element.innerHTML = new_text
+}

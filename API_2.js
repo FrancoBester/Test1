@@ -28,17 +28,16 @@ let games = [];
 function load_steamdata(steamdata){
     game_count = steamdata.response.game_count
     games = steamdata.response.games
-    let innerHtml_steam = '<p><a href="https://steamcommunity.com/profiles/76561198969742452/"> Steam account information </a></p>';
+    let innerHtml_steam = '<p><a href="#Links" onclick=open_new_window("steamcommunity.com/profiles/76561198969742452/")> Steam account information </a></p>';
 
     for(i = 0;i < 5 && i < game_count;i++){
         let img_src = "'http://media.steampowered.com/steamcommunity/public/images/apps/" + games[i].appid +"/" + games[i].img_logo_url + ".jpg'"
         innerHtml_steam = innerHtml_steam + 
         "<div style='float:left; margin-top:0px; padding-left: 3rem; width:45rem; margin-left: 1rem; margin-bottom: 0.1rem' class ='background_api'>"+
         "<h4 style='float:left; margin-top:2rem;'>"+games[i].name+ "<div>"+
-        "<h5>Playtime: "+ games[i].playtime_forever +" hours "+ 
+        "<h5>Playtime: "+ (games[i].playtime_forever/60).toFixed(2) +" hours "+ 
         "<img src="+ img_src+' class="game_img"/>'+"</div>"
         +"</div>" 
-        // "<img src="+ img_src+'class="game_img"/>'
     }
     innerHtml_steam = innerHtml_steam + "</div>"
     document.getElementById("Steam").innerHTML=innerHtml_steam
@@ -46,7 +45,7 @@ function load_steamdata(steamdata){
 
 function load_gitdata(githubdata){
     document.getElementById("Github").innerHTML=`
-    <p><a href="${githubdata.html_url}" >Github account information</a></p>
+    <p><a href="#Links" onclick=open_new_window("${githubdata.html_url.slice(7,40)}")>Github account information</a></p>
     <div class="background_api">
     <img src="${githubdata.avatar_url}" class="git_img"/>
     <p>Account name: ${githubdata.login}</p>
@@ -58,7 +57,7 @@ function load_gitdata(githubdata){
 
 function load_spacedata(spacedata){
     document.getElementById("SpaceX").innerHTML=`
-    <p> <a href='https://www.spacex.com/'>Latest SpaceX information</a></p>
+    <p> <a href='#Links' onclick=open_new_window("www.spacex.com/")>Latest SpaceX information</a></p>
     <div class="background_api" style="padding-bottom:0.5rem">
     <img src='https://www.spacex.com/static/images/backgrounds/starlink_11_dekstop.jpg' class="space_img"/>
     <p>Fight number : ${spacedata.flight_number}</p>
