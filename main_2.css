@@ -185,21 +185,25 @@ body {
 }
 
 /* Reference page css */
+/* padding changes to be 1 left and right for all div with class */
 .reference_div{
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
+/* sets sizze of images on reference page */
 .reference{
   width: 180px;
   height: 200px;
 }
 
+/* Css class used for all text on reference page */
 .reference_text{
   font-size: 1.4rem;
 }
 
 /* Interest page css */
+/* Css class applied to all the text on the interest page */
 .api_information{
   font-size: 2rem;
   background-color: #4fc1b1;
@@ -216,13 +220,14 @@ body {
   padding-right: 1rem; */
 }
 
+/* Css to change image size */
 .game_img{
   width: 300px;
   height: 150px;
   float: right;
   padding-left: 5rem;
 }
-
+/* css to change the size of an image */
 .git_img{
   width: 20%;
   height: 10rem;
@@ -231,6 +236,7 @@ body {
   padding-top: 1rem;
 }
 
+/* Css to cahnge the size of an image */
 .space_img{
   max-width: 80%;
   max-height: 40%;
@@ -238,20 +244,25 @@ body {
 }
 
 /* Download page */
+/* change to size of image on download page */
 .download_img{
   width: 20rem;
   height: 30rem;
 }
 
+/* changes image opacity to be half when a user hovers of image */
 .download_img:hover{
   opacity: 0.5;
 }
 
+/* Css that changes to left/right padding of div on download page */
 .download_div{
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
+/* Css animations */
+/* Animation that changes the opacity of an div form 0% to 100% */
 @keyframes fade_in{
   0%  {opacity: 0;}
   10% {opacity: 0.1;}
@@ -265,7 +276,7 @@ body {
   90% {opacity: 0.9;}
   100% {opacity: 1;}
 }
-
+/* Animation that loads bar untill the varaible max is reached */
 @keyframes bar_load{
   0%  {width: 0}
   10% {width: calc(var(--percent)*0.1);}
@@ -279,6 +290,7 @@ body {
   90% {width: calc(var(--percent)*0.9);}
 }
 
+/* Animation that changes the opacity of an div from 100% to 0% */
 @keyframes fade_out{
   0%  {opacity: 1;}
   10% {opacity: 0.9;}
@@ -293,11 +305,13 @@ body {
   100% {opacity: 0;}
 }
 
+/* spin animation to make a button rotate from 0 degrees to 360degrees */
 @keyframes spin_button{
   from{transform: rotateY(0deg);}
   to{transform: rotateY(360deg);}
 }
 
+/* spin animation that is used to change the text inside a button to be always to correct way */
 @keyframes spin_text{
   from{transform: rotateY(0deg);}
   to{transform: rotateY(360deg);}
