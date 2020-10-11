@@ -43,12 +43,12 @@ function init(){
 
     controls = new THREE.OrbitControls( camera, renderer.domElement );//Allows the user to rotate around the 3D object
     controls.update()
-    var light = new THREE.AmbientLight(0xffffff, .8, 0 );//Adds ligthing object to scene
+    var light = new THREE.AmbientLight(0xffffff, 1, 0 );//Adds ligthing object to scene
     scene.add(light);//adds lighting to scene
 
     //used to load custom 3D object
     var loader = new THREE.GLTFLoader();
-    loader.load(`./test7.glb`,
+    loader.load(`./The_cube.glb`,
         function (gltf){
             scene.add(gltf.scene);
         },
