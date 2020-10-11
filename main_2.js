@@ -1,21 +1,21 @@
-var scene,camera,mesh,renderer,controls
+var scene,camera,mesh,renderer,controls //objects used to do 3d model
 
-var camera_positions = [[7.989,0.366,-0.18],[-0.002,0.514,7.982],[0.000,5.880,-0.00000],[-0.738,0.1437,-7.964],[-7.824,-0.152,-1.657],[0.000,-7.994,0.00000]]
+var camera_positions = [[7.989,0.366,-0.18],[-0.002,0.514,7.982],[0.000,5.880,-0.00000],[-0.738,0.1437,-7.964],[-7.824,-0.152,-1.657],[0.000,-7.994,0.00000]]//x/y/z camera postions for each side of the sqaure 
 
-var used_cube = false
+var used_cube = false//used to check if user used to 3D cube to navigate or het nav bar
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);//check if site is on mobile or pc
+var past_div = null//used to get the name of the past div that the user viewed, sets to null when user has not viewed any div
 
-init();
-animate();
-// window.history.forward(1)//stops the user from using browser back button
+init();//initiate the 3D model
+animate();//shows the 3D model on the site
+window.history.forward(1)//stops the user from using browser back button
 
 function init() {
-    
     renderer = new THREE.WebGLRenderer();
-    render_setSize(window.innerWidth,window.innerHeight)
+    render_setSize(window.innerWidth,window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    window.addEventListener('resize',function(){
+    window.addEventListener('resize',function(){//function used to change size of scene when size of browser window changes
         var width = window.innerWidth;
         var height = window.innerHeight;
         renderer.setSize(width,height);
@@ -23,74 +23,75 @@ function init() {
         camera.updateProjectmatrix;
     })
 
-    scene = new THREE.Scene();
+    scene = new THREE.Scene();//space where 3D object is added to 
+
+    //used to load custom image asb scene background
     const img_loader = new THREE.TextureLoader();
     img_loader.load('./1.jpg',function(texture){
         scene.background = texture;
-        
-    })
+    });
 
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 200);
-    set_camera(7.989,0.366,-0.18)
+    set_camera(7.989,0.366,-0.18)//set the camera position to the front of the 3D cube
 
-    controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls = new THREE.OrbitControls( camera, renderer.domElement );//Allows the user to rotate around the 3D object
     controls.update()
-    var light = new THREE.AmbientLight(0xffffff, .8, 0 );
-    scene.add(light);
+    var light = new THREE.AmbientLight(0xffffff, .8, 0 );//Adds ligthing object to scene
+    scene.add(light);//adds lighting to scene
 
+    //used to load custom 3D object
     var loader = new THREE.GLTFLoader();
     loader.load(`./test7.glb`,
-        function (gltf)
-        {
+        function (gltf){
             scene.add(gltf.scene);
         },
     );
-    var raycaster = new THREE.Raycaster();
+
+    var raycaster = new THREE.Raycaster();//used as a base point to get mouse position relative to base point
     var mouse = new THREE.Vector3();
 
-    if(isMobile == false){
+    if(isMobile == false){//stops mobile user from clicking and activating 3D object
         window.addEventListener('dblclick',raycast); //Single click used to rotate 3D-object, event listens for double click to stop possible miss clicks
     }
 
     function raycast(){
         raycaster.setFromCamera(mouse,camera);
-        let ray_x = raycaster.ray.direction.x;
-        let ray_y = raycaster.ray.direction.y;
-        let ray_z = raycaster.ray.direction.z;
-        // Working if statements
+        let ray_x = raycaster.ray.direction.x;//gets current x position of object
+        let ray_y = raycaster.ray.direction.y;//gets current y position of object
+        let ray_z = raycaster.ray.direction.z;//gets current z position of object
+
+        //if statements used to determine which side the user is looking at based on x/y/z opition
         if(ray_y >= 0.8){ //Bottom side
-            zoomIN("References")
+            zoomIN("References");
         }
         else if(ray_y <= -0.8){ //Top side
-            zoomIN("Experience")
+            zoomIN("Experience");
         }
         else{
             if(ray_z <= -0.9){ //Front side
-                zoomIN("Langauge")
+                zoomIN("Langauge");
             }
             else if(ray_z >= 0.9){//Back side
-                zoomIN("Downloads")
+                zoomIN("Downloads");
             }
             else{
                 if(ray_x >= 0.9){//Left side
-                    zoomIN("Links")
+                    zoomIN("Links");
                 }
                 else if(ray_x <= -0.9){//Right side
-                    zoomIN("About")
+                    zoomIN("About");
                 }
             }
         }
-        // scene.visible = false;// used to hide 3D object
-    };
-    
+    };    
 }
 
-function set_camera(x,y,z){
+function set_camera(x,y,z){//is used to set camera position to the side that the user clicked last
     camera.position.set(x,y,z);
 }
 
-function render_setSize(width,height){
-    renderer.setSize(width,height)
+function render_setSize(width,height){//used to change the size of the 3D scene to hide from users
+    renderer.setSize(width,height);
 }
 
 function animate() {
@@ -99,19 +100,20 @@ function animate() {
     controls.update();
 };
 
-function zoomIN(elementID){
-    used_cube = true
+function zoomIN(elementID){//zoom in animation function for the 3D object
+    used_cube = true;
     setTimeout(function(){
         setTimeout(function(){
-            showDiv(elementID)
-        },2000)
-        gsap.to(camera.position,{
-            duration:2,
+            showDiv(elementID);//calls function to show div according to the Id of the div
+        },2000);
+
+        gsap.to(camera.position,{//position to where to camera must go to
+            duration:2,//duration of animation
             z:0,
             x:0,
             y:0,
             onUpdate: function(){
-                camera.updateMatrix();
+                camera.updateMatrix();//updates scene to create the animation effect
             }
         });
     
@@ -123,12 +125,12 @@ function zoomIN(elementID){
             onUpdate: function(){
                 controls.update();
             }
-        })
+        });
         
     },0);
-}
+};
 
-function zoomOut(elementID,previous_camera_pos){
+function zoomOut(elementID,previous_camera_pos){//function used to zoom out of 3D object once a user has clicked to home button
     setTimeout(function(){
         setTimeout(function(){
             gsap.to(camera.position,{
@@ -141,52 +143,51 @@ function zoomOut(elementID,previous_camera_pos){
                 }
             })
         },500)
-        render_setSize(window.innerWidth,window.innerHeight)
-        set_camera(0,0,0)
-        elementID.style.visibility = "hidden"
-        elementID.classList.remove("heading")//used to remove class styles
+        render_setSize(window.innerWidth,window.innerHeight);//changes to size of the scene to be big once the user returns to the home page
+        set_camera(0,0,0);//sets camera position to inside cube to allow animation to zoom out of cube
+        elementID.style.visibility = "hidden";//changes the visiblity of the current viewed div to be hidden again
+        elementID.classList.remove("heading");//used to remove class styles to hide div again
     },3000)
 }
 
-var past_div = null
 
-// function used to remove a DIV html tah from the html file
-function showDiv(elementId){
-    render_setSize(0,0)
-    var element = document.getElementById(elementId);
 
-    if((past_div != elementId) && (past_div != null)){ 
-        prev_element = document.getElementById(past_div)
-        prev_element.classList.remove("heading")
-        prev_element.style.visibility = "hidden"
-        prev_element.classList.add("hide_section")
+// function used to remove a DIV html tag from the html file
+function showDiv(elementID){
+    render_setSize(0,0);//hide scene
+    var element = document.getElementById(elementID);
+
+    if((past_div != elementID) && (past_div != null)){ //if statement is used to hide previous div when a user navigated using the nav bar
+        prev_element = document.getElementById(past_div);
+        prev_element.classList.remove("heading");
+        prev_element.style.visibility = "hidden";
+        prev_element.classList.add("hide_section");
     }
 
-    if(isMobile == false)
-    {
+    if(isMobile == false){//changes the layout of langauge div if user is viewing page on a mobile device
        testing_stuff()
     }
     
-    document.getElementById(elementId+"_btn").disabled = false
+    document.getElementById(elementID+"_btn").disabled = false//disables 
     element.classList.remove("hide_section")//used to remove class styles
-    element.style.visibility = "visible"
+    element.style.visibility = "visible"//changes div visiblity to allow user to see it
     element.classList.add("heading") //used to add a new class style
 
     if(isMobile == true){//if statement used to had back button when on mobile
-        var test = document.getElementById(elementId+'_btn')
+        var test = document.getElementById(elementID+'_btn')
         console.log(test.style.visibility)
         test.style.visibility = "hidden"
         console.log(test.style.visibility)
     }
 
-    if(elementId == "Langauge"){
+    if(elementID == "Langauge"){
         var element2 = document.getElementsByClassName("bar_fill")
         for(var i =0; i < element2.length;i++){
             element2[i].style.animationName = "bar_load"
             element2[i].style.width="var(--percent)"
         }
     }
-    past_div = elementId
+    past_div = elementID
 }
 
 function test_function(elementId){//method used to hide html and show the cube
@@ -244,10 +245,10 @@ function open_new_window(URL){
 function testing_stuff(){
     var element = document.getElementById("lang_skils")
     var new_text = 
-    '<section style="float: left; width:50%">'+
+    '<section style="float: left; width:60%">'+
         '<p class="langauge_text" style"width:100%;">For the past 6 years I have been improving and expading my programming knowledge while also learning new langauges every change I get.</p>'+
         '<p class="langauge_text">I have a greater interest in back-end development but I am also passion for front-end development and providing the user with both a great user interface and expereince.</p>'+
-        '<p class="langauge_text" style="width: 70%">I am very experienced working with SQL based databases, I haved used multiple different DBMS like MYSQL, Oracle and MS Access.</p>'+
+        '<p class="langauge_text" style="width: 90%">I am very experienced working with SQL based databases, I haved used multiple different DBMS like MYSQL, Oracle and MS Access.</p>'+
     '</section>'+
 
     '<div class="bar_position" style="--top_position: 11rem;--right_position:11rem;--bar_width:5rem;--bar_height:1.5rem;">'+
@@ -262,37 +263,37 @@ function testing_stuff(){
 
     '<div class="bar_position" style="--top_position: 16rem;--right_position:4rem;--bar_width:5rem;--bar_height:1.5rem;">'+
         '<p>Python - 8/10</p>'+
-        '<div id="bar_border" style="--percent: 80%;margin-left:6rem><div class="bar_fill"></div></div>'+
+        '<div id="bar_border" style="--percent: 80%; margin-left:5rem"><div class="bar_fill"></div></div>'+
     '</div>'+
 
     '<div class="bar_position" style="--top_position: 22rem;--right_position:22rem;--bar_width:5rem;--bar_height:1.5rem;">'+
         '<p> JavaScript - 7/10</p>'+
-        '<div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>'+
+        '<div id="bar_border" style="--percent: 70%; margin-left:5rem"><div class="bar_fill"></div></div>'+
     '</div> '+
 
     '<div class="bar_position" style="--top_position: 22rem;--right_position:11rem;--bar_width:5rem;--bar_height:1.5rem;">'+
         '<p> C++ - 7/10</p>'+
-        '<div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>'+
+        '<div id="bar_border" style="--percent: 70%; margin-left:5rem"><div class="bar_fill"></div></div>'+
     '</div> '+
 
     '<div class="bar_position" style="--top_position: 22rem;--right_position:0rem;--bar_width:5rem;--bar_height:1.5rem;">'+
         '<p> Java - 7/10</p>'+
-        '<div id="bar_border" style="--percent: 70%"><div class="bar_fill"></div></div>'+
+        '<div id="bar_border" style="--percent: 70%; margin-left:5rem"><div class="bar_fill"></div></div>'+
     '</div> '+
 
     '<div class="bar_position" style="--top_position: 28rem;--right_position:11rem;--bar_width:5rem;--bar_height:1.5rem;">'+
         '<p> Delphi - 6/10</p>'+
-        '<div id="bar_border" style="--percent: 60%"><div class="bar_fill"></div></div>'+
+        '<div id="bar_border" style="--percent: 60%; margin-left:5rem"><div class="bar_fill"></div></div>'+
     '</div>'+
 
     '<div class="bar_position" style="--top_position: 33rem;--right_position:19rem;--bar_width:5rem;--bar_height:1.5rem;">'+
         '<p> HTML - 5/10</p>'+
-        '<div id="bar_border" style="--percent: 50%"><div class="bar_fill"></div></div>'+
+        '<div id="bar_border" style="--percent: 50%; margin-left:5rem"><div class="bar_fill"></div></div>'+
     '</div>'+
 
     '<div class="bar_position" style="--top_position: 33rem;--right_position:4rem;--bar_width:5rem;--bar_height:1.5rem;">'+
         '<p> CSS - 5/10</p>'+
-        '<div id="bar_border" style="--percent: 50%"><div class="bar_fill"></div></div>'+
+        '<div id="bar_border" style="--percent: 50%; margin-left:5rem"><div class="bar_fill"></div></div>'+
     '</div>'
 
     element.innerHTML = new_text
