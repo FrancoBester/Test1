@@ -1,5 +1,5 @@
 html{
-  /* background-image: url("./1.jpg"); */
+  background-image: url("./1.jpg");
   max-height: 10%;
 }
 
@@ -105,6 +105,12 @@ body {
   width: 12rem;
   height: 12rem;
   animation: spin 2s linear infinite;
+}
+
+.mobile_message{
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 /* About page css */

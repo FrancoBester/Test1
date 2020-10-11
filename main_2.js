@@ -6,11 +6,18 @@ var used_cube = false//used to check if user used to 3D cube to navigate or het 
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);//check if site is on mobile or pc
 var past_div = null//used to get the name of the past div that the user viewed, sets to null when user has not viewed any div
 
+if(isMobile == true){//displays a message to mobile users
+    var body_element = document.getElementsByTagName("BODY")[0];
+    body_element.innerHTML = body_element.innerHTML +
+    '<div class="mobile_message"> For the optimal experience, view on a desktop device</div';
+}
+
+
 init();//initiate the 3D model
 animate();//shows the 3D model on the site
 window.history.forward(1)//stops the user from using browser back button
 
-function init() {
+function init(){
     renderer = new THREE.WebGLRenderer();
     render_setSize(window.innerWidth,window.innerHeight);
     document.body.appendChild(renderer.domElement);
@@ -94,7 +101,7 @@ function render_setSize(width,height){//used to change the size of the 3D scene 
     renderer.setSize(width,height);
 }
 
-function animate() {
+function animate(){
 	requestAnimationFrame(animate);
     renderer.render(scene, camera);
     controls.update();
@@ -150,10 +157,7 @@ function zoomOut(elementID,previous_camera_pos){//function used to zoom out of 3
     },3000)
 }
 
-
-
-// function used to remove a DIV html tag from the html file
-function showDiv(elementID){
+function showDiv(elementID){// function used to remove a DIV html tag from the html file
     render_setSize(0,0);//hide scene
     var element = document.getElementById(elementID);
 
@@ -164,85 +168,79 @@ function showDiv(elementID){
         prev_element.classList.add("hide_section");
     }
 
-    if(isMobile == false){//changes the layout of langauge div if user is viewing page on a mobile device
-       testing_stuff()
+    if(isMobile == true){//changes the layout of langauge div if user is viewing page on a mobile device
+        change_lang_mobil();//calls method to change innerHTML of div
     }
     
-    document.getElementById(elementID+"_btn").disabled = false//disables 
-    element.classList.remove("hide_section")//used to remove class styles
-    element.style.visibility = "visible"//changes div visiblity to allow user to see it
-    element.classList.add("heading") //used to add a new class style
+    document.getElementById(elementID+"_btn").disabled = false;//disables 
+    element.classList.remove("hide_section");//used to remove class styles
+    element.style.visibility = "visible";//changes div visiblity to allow user to see it
+    element.classList.add("heading"); //used to add a new class style
 
     if(isMobile == true){//if statement used to had back button when on mobile
         var test = document.getElementById(elementID+'_btn')
-        console.log(test.style.visibility)
-        test.style.visibility = "hidden"
-        console.log(test.style.visibility)
-    }
+        test.style.visibility = "hidden";
+    };
 
-    if(elementID == "Langauge"){
-        var element2 = document.getElementsByClassName("bar_fill")
-        for(var i =0; i < element2.length;i++){
-            element2[i].style.animationName = "bar_load"
-            element2[i].style.width="var(--percent)"
-        }
-    }
-    past_div = elementID
+    if(elementID == "Langauge"){//checks if th current div is the langauge dic
+        var bar_elements = document.getElementsByClassName("bar_fill")//gets all the elements with the class of 'bar_fill'
+        for(var i=0; i<bar_elements.length ;i++){//adds animation and width to each of the elements in bar_elements
+            bar_elements[i].style.animationName = "bar_load";
+            bar_elements[i].style.width="var(--percent)";
+        };
+    };
+    past_div = elementID;//sets the current div to be the next previous div
 }
 
-function test_function(elementId){//method used to hide html and show the cube
-    var element = document.getElementById(elementId);
-    var previous_side
-    switch(elementId){
+function hideDiv(elementID){//method used to hide html and show the cube
+    var element = document.getElementById(elementID);
+    var previous_side;//used to save the camera position based on which div needs to be hidden
+    switch(elementID){//switch statements is used to determine which camera position to use in the camera_position array
         case "About":
-            previous_side = camera_positions[0]
+            previous_side = camera_positions[0];
             break;
         case "Langauge":
-            previous_side = camera_positions[1]
-            var element2 = document.getElementsByClassName("bar_fill")
-            for(var i =0; i < element2.length;i++){
-                element2[i].style.animationName = ""
-                element2[i].style.width=""
+            previous_side = camera_positions[1];
+            var bar_elements=document.getElementsByClassName("bar_fill");//gets all the item with the 'bar_fill' class
+            for(var i=0; i<bar_elements.length ;i++){//changes the animation name and width of each of the item with the 'bar_fill' class 
+                bar_elements[i].style.animationName="";//removes animations
+                bar_elements[i].style.width="";//makes element invisible
             }
             break;
         case "Experience":
-            previous_side = camera_positions[2]
+            previous_side = camera_positions[2];
             break;
         case "Downloads":
-            previous_side = camera_positions[3]
+            previous_side = camera_positions[3];
             break;
         case "Links":
-            previous_side = camera_positions[4]
+            previous_side = camera_positions[4];
             break;
         case "References":
-            previous_side = camera_positions[5]
+            previous_side = camera_positions[5];
             break;
-    }
+    };
     
-
-    
-    if(document.getElementById(elementId+"_btn").disabled == false && used_cube == true){
-        element.classList.add("hide_section") //used to add a new class style
-        document.getElementById(elementId+"_btn").disabled = true
-        zoomOut(element,previous_side)
-        used_cube = false
+    if(document.getElementById(elementID+"_btn").disabled == false && used_cube == true){
+        element.classList.add("hide_section");//adds class to div to hide div from user
+        document.getElementById(elementID+"_btn").disabled = true;//disbales the back button to stop user from pressing multiple times
+        zoomOut(element,previous_side);//class xoomout animation for 3D object
+        used_cube = false;//changes used_cube to check if user useses the cube the next time
     }
-    else{
-        var element = document.getElementById(elementId);
-        element.classList.add("hide_section") //used to add a new class style
-        element.style.visibility = "hidden"
-        element.classList.remove("heading")
-        render_setSize(window.innerWidth,window.innerHeight)
+    else{//changes div's properties for when user used the nav bar to move between different div's
+        var element = document.getElementById(elementID);
+        element.classList.add("hide_section");//used to add a new class style
+        element.style.visibility = "hidden";
+        element.classList.remove("heading");
+        render_setSize(window.innerWidth,window.innerHeight);//Makes scene space bigger to show 3D object to user
     }
-    
-    // console.log(element.style.visibility)
-}
+};
 
-function open_new_window(URL){
-    window.open("https://"+URL)
-}
+function open_new_window(URL){//function used to open other webpages in a new browser window
+    window.open("https://"+URL);
+};
 
-function testing_stuff(){
+function change_lang_mobil(){//function us used to replace the innerHTML of the langauge class when a user views the site on mobile
     var element = document.getElementById("lang_skils")
     var new_text = 
     '<section style="float: left; width:60%">'+
