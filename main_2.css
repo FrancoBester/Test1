@@ -1,19 +1,17 @@
+/* html css adds background image to html */
 html{
   background-image: url("./1.jpg");
-  max-height: 10%;
 }
 
+/* body html tag css, remove padding and margins, width is auto adjusted and hides extra x data*/
 body { 
-  margin: 0; 
+  margin: 0rem; 
   width: auto;
-
   padding: 0rem;
   overflow-x: hidden;
-  margin-top: 0rem;
 }
 
 /* Navigation bar CSS */
-
 .topnav {
   background-color: rgb(34, 34, 34);
   overflow: hidden;
@@ -40,6 +38,7 @@ body {
 }
 
 /* Pages CSS */
+/* Css class that is used by all the headings on site */
 .heading{
   width: 100%;
   text-align: center;
@@ -54,6 +53,7 @@ body {
   height: auto;
 }
 
+/* Css class that is applied to all divs under heading divs */
 .paragraph{
   display: block;
   padding: 1rem;
@@ -64,6 +64,7 @@ body {
   margin-top: 1rem;
 }
 
+/* Css used to hide a div */
 .hide_section{
   /* used to make div on page not take space on page when other div is being shown */
   position: absolute; 
@@ -73,6 +74,7 @@ body {
   width: -100px;
 }
 
+/* Css to make back button look 3D, assign size change color to blue and added spin animation*/
 .back_button{
   float: left;
   margin-left: 2rem;
@@ -87,10 +89,12 @@ body {
   animation-iteration-count: infinite;
 }
 
+/* Css changes opacity of button when mouse hover over button */
 .back_button:hover{
   opacity: 0.5;
 }
 
+/* Css class used to spin text inside back button to always be right way round */
 .span_button{
   animation-name: spin_text;
   animation-duration: 5s;
@@ -98,15 +102,7 @@ body {
   animation-iteration-count: infinite;
 }
 
-#loader{
-  border: 1.6rem solid wheat;
-  border-radius: 50%;
-  border-top: 1.6rem solid blue;
-  width: 12rem;
-  height: 12rem;
-  animation: spin 2s linear infinite;
-}
-
+/* Css for message when user is viewing site on mobile */
 .mobile_message{
   color: white;
   font-size: 2rem;
@@ -114,6 +110,7 @@ body {
 }
 
 /* About page css */
+/* Css to set size,padding and border radius of profile picture  */
 .me{
   width: 350px;
   height: 450px;
@@ -122,27 +119,31 @@ body {
   padding-right: 0rem;
 }
 
+/* Css class applied to all text on about text, changes font size to be bigger and bottom padding to be larger*/
 .About_text{
   padding-bottom: 0.95rem;
   font-size: 1.3rem;
 }
 
 /* Experience page */
+/* Css for si image to change the size */
 .SI_img{
   width: 300px;
   height: 500px;
 }
 
+/* makes opacity half when user hovers over image */
 .SI_img:hover{
   opacity: 0.5;
 }
-
+/* Css class applied to all the text on the experience page, make text and bottom padding bigger */
 .experience_text{
   padding-bottom: 0.85;
   font-size: 1.1rem;
 }
 
 /* Langauge page css */
+/* Css class to change the size of border according to varaible size given in html */
 #bar_border{
   height: var(--bar_height);
   width: var(--bar_width);
@@ -150,6 +151,7 @@ body {
   margin: 1rem;
 }
 
+/* Css to make bar fill possible */
 .bar_fill{
   display: block;
   height: var(--bar_height);
@@ -158,6 +160,7 @@ body {
   animation-duration: 2s;
 }
 
+/* Css class that moves div according to the values given in html */
 .bar_position{
   position: absolute;
   top: var(--top_position);
@@ -166,6 +169,7 @@ body {
   width: 20%;
 }
 
+/* Css class applied to all the text on the langauge page, change padding and font size */
 .langauge_text{
   background-color: white;
   margin-left: 0rem;
